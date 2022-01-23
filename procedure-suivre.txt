@@ -1,0 +1,29 @@
+Les bases du langage PHP
+Cette section vous aidera à démarrer rapidement avec PHP.
+
+    - Pourquoi apprendre PHP?
+    - Introduction au langage PHP
+    - Préparation de l'environnement de travail PHP
+    - Syntaxe de base PHP
+    - Les variables en PHP
+    - Les constantes en PHP
+    - Commentaires en PHP
+    - Différence entre echo et print en PHP
+    - Retour à la ligne, et la concatenation en PHP
+    - Types de données en PHP(String, Integer, Float, Boolean, Array, Object, NULL, Resource)
+    - Les opérateurs en PHP
+    - Les tableaux en PHP
+    - Les tableaux indexés en PHP
+    - Les tableaux associatifs en PHP
+    - Les tableaux multidimensionnels en PHP
+    - les condition PHP: If… Else,Opérateur ternaire, Switch…Case
+    - Les boucles en PHP
+    - Parcourir un tableau en PHP
+    - Parcourir un tableau multidimensionnel en PHP
+    - Les fonctions en PHP
+    - GET et POST en PHP
+    - Les fonctions PHP que vous devez savoir
+    - PHP Avancé
+    - PHP & MySQL
+    - Formulaires PHP
+    - --------................
