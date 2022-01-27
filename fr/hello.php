@@ -21,11 +21,9 @@
     <table class="table">
         <thead>
             <tr>
-            <?php foreach($usres as $u) {
-                foreach($u as $key=>$value) { ?>
+            <?php foreach($usres[0] as $key=>$value) { ?>
                 <th><?php echo $key; ?></th>
-            <?php } break;
-            }?>
+            <?php }?>
             </tr>
         </thead>
         <tbody>
