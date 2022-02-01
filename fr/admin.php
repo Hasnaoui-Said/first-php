@@ -1,3 +1,12 @@
+<?php
+    require_once('library/library.php');
+    require_once('library/config.php');
+    include('get.php');
+    session_start();
+
+    ensureUserIsAuthenticated();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +16,18 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include('header.php') ?>
-    <?php include('get.php') ?>
+    <?php include('header.php');?>
 
     <div class="container">
         <div class="card">
             <?php if($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET'){;?>
             <h2>Confirmation</h2>
+            <h2>Admin Panel</h2>
             <p>
-                <?php echo "name = $myName  age = $myAge";?>
+                <?php echo $_SESSION['email'];?>
             </p>
             <?php } ?>
-            <a href="form.php">Go back</a>
+            <a href="logout.php">Go back</a>
         </div>
     </div>
     <?php include('footer.php') ?>

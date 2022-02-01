@@ -1,12 +1,24 @@
 <?php
+    require_once('library/library.php');
+    require_once('library/config.php');
+    session_start();
+    
+    if(isAuthenticated()){
+        redirect('admin');
+        die();
+    }
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
+    $status = "";
 
-    require_once('library/library.php');
-
-    if(authenticate($email, $password)){
-        redirect('about');  
-        die();
+    if($_SERVER['REQUEST_METHOD'] === "POST"){
+        if(authenticate($email, $password)){
+            $_SESSION['email'] = $email;
+            redirect('admin');
+            die();
+        }else {
+            $status = "This Provided credentials didn't not work!";
+        }
     }
 ?>
 
@@ -31,6 +43,9 @@
         <div class="row">
             <div class="col m-auto">
                 <h1>Super global Get and Post</h1>
+                <?php if($status != ""){ ?>
+                <div class="alert alert-danger"><?php echo $status?></div>
+                <?php } ?>
                 <form action="" method="POST">
                     <div class="form-group  my-3">
                         <label for="email">Your email:</label>

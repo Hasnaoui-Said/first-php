@@ -8,3 +8,4 @@
 ];
 
 echo $users[titre];
+print_r($users);
