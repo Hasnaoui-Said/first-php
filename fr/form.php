@@ -19,10 +19,10 @@
         <div class="row">
             <div class="col m-auto">
                 <h1>Super global Get and Post</h1>
-                <form action="confirmation.php" method="">
+                <form action="confirmation.php" method="POST">
                     <div class="form-group  my-3">
                         <label for="name">Your name:</label>
-                        <input id="name" name="name" type="text" class="form-control  my-1">
+                        <input name="NOM" type="text" class="form-control  my-1">
                     </div>
                     <div class="form-group  my-3">
                         <label for="age">Age:</label>

@@ -2,9 +2,8 @@
         $messages = file_get_contents("data/message.json");
         $messages = json_decode($messages, true);
         for($i=0; $i<count($messages["users"]); $i++)
-            if($messages["users"][$i]['email'] == $_GET['id'])
+            if($messages["users"][$i]['id'] == $_GET['id'])
                 $mySty = $messages["users"][$i];
-        print_r($mySty);
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +30,8 @@
                 <h2>Update</h2>
                 <form action="up.php" method="POST">
                     <div class="form-group  my-3">
-                        <label for="email" readonly="readonly">Your email *:</label>
-                        <input  value="<?php echo $mySty['email'] ?>" required id="email" name="email" type="email" class="form-control  my-1">
+                        <label for="email" >Your email *:</label>
+                        <input readonly  value="<?php echo $mySty['email'] ?>" required id="email" name="email" type="email" class="form-control  my-1">
                     </div>
                     <div class="form-group  my-3">
                         <label for="name">Your name *:</label>

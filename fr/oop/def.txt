@@ -1,0 +1,10 @@
+Pourquoi la poo?
+pour structure et maintenir le code !
+les classes = des atributes et des methodes: notion de patern
+les objects: instanciation des op, : instance d'un classe : notion de concratisation
+Inheritage: ihrite des truc a partir d'un classes
+Encapsulation: la sucerite de att et les meth public private protected
+abstraction: calse = abstraction, object = la concratization
+Polymorphism: redifinition des methodes
+Attibute:
+Methode: 

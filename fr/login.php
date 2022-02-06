@@ -7,17 +7,40 @@
         redirect('admin');
         die();
     }
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $email = '';
+    $password = '';
     $status = "";
+    $email_epmty = "";
+    $password_epmty = "";
 
     if($_SERVER['REQUEST_METHOD'] === "POST"){
-        if(authenticate($email, $password)){
-            $_SESSION['email'] = $email;
-            redirect('admin');
-            die();
-        }else {
-            $status = "This Provided credentials didn't not work!";
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+        if(empty($email)){
+            $email_epmty = "<br/>email is required !";
+        }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                $email_epmty .= "<br/>email is invalide !";
+            
+        }
+        if(empty($password)){
+            $password_epmty = "<br/>password is required !";
+        }else{
+            if(strlen($password) < 6){
+                $password_epmty .= "<br/>password should be more than 8 carracteres !";
+            }
+            $options = array('options'=>array('regexp'=>'/^([a-zA-Z0-9])+$/i'));
+            if(!filter_var($password, FILTER_VALIDATE_REGEXP, $options)){
+                $password_epmty .= "<br/>password shoulde be Alpha numeric and spaces!";
+            }
+        }
+        if(empty($password_epmty) and empty($email_epmty)){
+            if(authenticate($email, $password)){
+                $_SESSION['email'] = $email;
+                redirect('admin');
+                die();
+            }else {
+                $status = "This Provided credentials didn't not work!";
+            }
         }
     }
 ?>
@@ -42,18 +65,38 @@
     <div class="container d-flex justify-content-center algn-items-center">
         <div class="row">
             <div class="col m-auto">
-                <h1>Super global Get and Post</h1>
+                <h1>Super global Get and Post (login php)</h1>
                 <?php if($status != ""){ ?>
                 <div class="alert alert-danger"><?php echo $status?></div>
                 <?php } ?>
                 <form action="" method="POST">
                     <div class="form-group  my-3">
-                        <label for="email">Your email:</label>
-                        <input id="email" name="email" type="email" class="form-control  my-1">
+                        <label for="email">Your email:
+                            <?php if($email_epmty != ""){ ?>
+                            <small class="alert-danger"><?php echo $email_epmty?></small>
+                            <?php } ?>
+                        </label>
+                        <input id="email" name="email" type="email" class="form-control  my-1"
+                        <?php if($email != ""){ 
+                             echo "value=\"$email\"";
+                            }else { 
+                                echo "placeholder = \"email\"";
+                            } ?>
+                        >
                     </div>
                     <div class="form-group  my-3">
-                        <label for="age">Password:</label>
-                        <input id="password" name="password" type="password" class="form-control my-1">
+                        <label for="age">Password:
+                            <?php if($password_epmty != ""){ ?>
+                            <small class="alert-danger"><?php echo $password_epmty?></small>
+                            <?php } ?>
+                        </label>
+                        <input id="password" name="password" type="password" class="form-control my-1"
+                        <?php if($password != ""){ 
+                             echo "value=\"$password\"";
+                            }else { 
+                                echo "placeholder = \"password\"";
+                            } ?>
+                        >
                     </div>
                     <button type="submit" class="my-3 btn w-100 btn-info">Login</button>
                 </form>
