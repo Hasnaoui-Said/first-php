@@ -1,6 +1,1 @@
-{
-    "users":[
-    {"id":3,"nom":"said hasnaoui","email":"karia.hasnaoui@gmail.com","note":"","date":"February, 2-2022"},
-    {"id":4,"nom":"uca","email":"said.hasnaoui@edu.uca.ma","note":"","date":"February, 2-2022"}
-    ]
-}
+{"users":[{"id":3,"nom":"said hasnaoui","email":"karia.hasnaoui@gmail.com","note":"","date":"February, 2-2022"},{"id":4,"nom":"uca","email":"said.hasnaoui@edu.uca.ma","note":"","date":"February, 2-2022"}]}
